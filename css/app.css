@@ -1,0 +1,78 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#memory-game {
+    width: 95%;
+    margin: auto;
+}
+
+/* card with equal height and width on resizing , credit to http://www.mademyday.de/css-height-equals-width-with-pure-css.html/ */
+
+.container {
+    display: inline-block;
+    width: 23%;
+    margin: 0.5%;
+    position: relative;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+}
+
+.container::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+/*card flip effect, credit to https://desandro.github.io/3dtransforms/docs/card-flip.html */
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.card figure {
+    margin: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.front {
+    background-color: blue;
+}
+
+.back {
+    background-color: red;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+  -webkit-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+}
+
+
+
+
+
+
