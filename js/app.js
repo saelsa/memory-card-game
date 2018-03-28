@@ -23,9 +23,15 @@ $(function () {
 
 
 
-
     //EVENT TRIGGERS
     $('.card').click(function (event) {
+
+        //if this is the initial click, start the stopwatch
+
+        if (attempts === 0) {
+            stopwatch();
+        };
+
 
         //flip the card if it isn't already open or the comparison array full
 
@@ -115,9 +121,6 @@ $(function () {
 
 
 
-
-
-
     // shuffle function from http://stackoverflow.com/a/2450976
     function shuffle(array) {
         var currentIndex = array.length,
@@ -133,7 +136,6 @@ $(function () {
 
         return array;
     };
-
 
 
 });
