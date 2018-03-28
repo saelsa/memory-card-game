@@ -20,10 +20,13 @@ $(function () {
 
 
 
+
+
+
+
     //EVENT TRIGGERS
     $('.card').click(function (event) {
 
-        clearTimeout();
         //flip the card if it isn't already open or the comparison array full
 
         if ($(this).hasClass("flipped") || $(this).hasClass("solved") || comparisonArray.length >= 2) {
@@ -39,17 +42,16 @@ $(function () {
 
         comparisonArray.push($(this).data("card-type"));
 
-        //if this is the first card clicked simply count the click and attempt
+        //if this is the first card clicked simply count the click and number of attempts
 
         if (clickCount === 0) {
 
             clickCount++;
-            attempts++;
-
+            recordAttempts();
 
         } else {
 
-            //if this is the second card clicked store the card information in the array and compare whether is it the same as the other stored card. If yes add to the number of pairs and change the css attribute to permanently leave the card open.
+            //if this is the second card clicked compare whether it is the same as the other stored card. If yes, add to the number of pairs and change the css attribute to permanently leave the card open.
 
             if (comparisonArray[0] === comparisonArray[1]) {
 
@@ -84,6 +86,23 @@ $(function () {
 
     }
 
+    //function to record the number of attempts of a player and to reduce the number of stars based on performance
+    function recordAttempts() {
+        attempts++;
+        $('#attempts').html(attempts);
+
+        if (attempts > 16 && attempts < 24) {
+            $('#stars').html('<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>');
+        } else if (attempts >= 24 && attempts < 32) {
+            $('#stars').html('<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>');
+        } else if (attempts >= 32) {
+            $('#stars').html('<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>');
+        } else {
+            return;
+        };
+
+    }
+
     //function to create the memory board
     function createBoard() {
 
@@ -93,6 +112,10 @@ $(function () {
             memoryBoard.append($(`<div class='container'><div class='card' data-card-type='${cardArray[i-1]}'><figure class='front'></figure><figure class='back'> ${cardArray[i-1]} </figure></div></div>'`));
         }
     };
+
+
+
+
 
 
     // shuffle function from http://stackoverflow.com/a/2450976

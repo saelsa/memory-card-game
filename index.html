@@ -5,16 +5,26 @@
     <title>Memory Card Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
     <link rel="stylesheet" href="css/app.css">
 
 </head>
+
 <body>
     <header>
         <h1>Memory Card Game</h1>
     </header>
     <main>
-        <section class="stats"></section>
         <section class="game">
+            <ul class="stats">
+                <li id="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
+                <li>
+                    <p>Attempts</p>
+                    <p id="attempts">0</p>
+                </li>
+                <li></li>
+                <li></li>
+            </ul>
             <div id="memory-game">
 
             </div>

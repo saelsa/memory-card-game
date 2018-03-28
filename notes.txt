@@ -1,0 +1,2 @@
+<i class="fas fa-hourglass-start"></i>
+<i class="fas fa-redo"></i>

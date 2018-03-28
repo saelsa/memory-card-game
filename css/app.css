@@ -5,6 +5,30 @@
     padding: 0;
 }
 
+
+/* STATISTICS */
+
+ul.stats {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+
+}
+
+ul.stats li {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+    width: 25%;
+}
+
+
+/* CARDBOARD */
+
 #memory-game {
     width: 95%;
     margin: auto;
@@ -68,12 +92,6 @@
 
 .card.flipped,
 .card.solved {
-  -webkit-transform: rotateY( 180deg );
-  transform: rotateY( 180deg );
+    -webkit-transform: rotateY( 180deg);
+    transform: rotateY( 180deg);
 }
-
-
-
-
-
-
