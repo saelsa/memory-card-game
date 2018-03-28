@@ -83,6 +83,10 @@ $(function () {
     });
 
 
+    $('.fa-undo').click(function() {
+    location.reload();
+    });
+
 
     //FUNCTIONS
 
