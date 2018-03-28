@@ -119,7 +119,7 @@ $(function () {
         cardArray = shuffle(cardArray);
 
         for (i = 1; i <= cardArray.length; i++) {
-            memoryBoard.append($(`<div class='container'><div class='card' data-card-type='${cardArray[i-1]}'><figure class='front'></figure><figure class='back'> ${cardArray[i-1]} </figure></div></div>'`));
+            memoryBoard.append($(`<div class='container'><div class='card' data-card-type='${cardArray[i-1]}'><figure class='front'></figure><figure class='back'></figure></div></div>'`));
         }
     };
 

@@ -85,13 +85,48 @@ ul.stats li {
 }
 
 .back {
-    background-color: red;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
+
 }
 
 .card.flipped,
 .card.solved {
     -webkit-transform: rotateY( 180deg);
     transform: rotateY( 180deg);
+}
+
+
+/* Card Backgrounds */
+
+[data-card-type="A"] .back {
+    background: #c6c6c6 url('../img/001-watering-can.svg');
+}
+
+[data-card-type="B"] .back {
+    background: #c6c6c6 url('../img/002-wellington.svg');
+}
+
+[data-card-type="C"] .back {
+    background: #c6c6c6 url('../img/003-rainbow.svg');
+}
+
+[data-card-type="D"] .back {
+    background: #c6c6c6 url('../img/004-rabbit.svg');
+}
+
+[data-card-type="E"] .back {
+    background: #c6c6c6 url('../img/005-bee.svg');
+}
+
+[data-card-type="F"] .back {
+    background: #c6c6c6 url('../img/006-sun.svg');
+}
+
+[data-card-type="G"] .back {
+    background: #c6c6c6 url('../img/007-plant.svg');
+}
+
+[data-card-type="H"] .back {
+    background: #c6c6c6 url('../img/008-easter-egg.svg');
 }
