@@ -61,9 +61,14 @@ $(function () {
 
             if (comparisonArray[0] === comparisonArray[1]) {
 
-                pairs++;
 
                 $("[data-card-type=" + comparisonArray[0] + "]").removeClass('flipped').addClass('solved');
+
+                pairs++;
+
+                if(pairs===8) {
+                    gameOver();
+                }
             };
 
             //close all unsuccessfully opened cards and clear the comparison array with a short delay
@@ -83,8 +88,8 @@ $(function () {
     });
 
 
-    $('.fa-undo').click(function() {
-    location.reload();
+    $('.fa-undo').click(function () {
+        location.reload();
     });
 
 
@@ -123,6 +128,22 @@ $(function () {
         }
     };
 
+    //function for what happens when all pairs are found and the game is over
+    function gameOver() {
+        messageWinning();
+
+    }
+
+
+    //function for the popup message on winning
+    function messageWinning() {
+
+
+        $(`<section class="game-over"><div class="message-box"><h2>Yay! You have found all pairs!</h2><p>Number of attempts: ${attempts}</p><p>Time required: 00:00 </p><p>Level: stars</p><p><i class="fas fa-undo"></i></p></div></section>`).insertAfter($('.game'));
+
+        $('.message-box').fadeIn(800);
+
+    }
 
 
     // shuffle function from http://stackoverflow.com/a/2450976
@@ -139,7 +160,7 @@ $(function () {
         }
 
         return array;
-    };
+    }
 
 
 });

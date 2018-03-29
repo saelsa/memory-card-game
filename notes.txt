@@ -1,2 +1,23 @@
-<i class="fas fa-hourglass-start"></i>
-<i class="fas fa-redo"></i>
+ToDo
+
+Features
+#add feat on winning: popup with stats
+
+
+Improve
+#incorporate timing function into general function to reuse variables etc.
+#improve the recording of stars to generalize their use
+#separate event on card click from all the stuff that will happen, put into function
+#fix fa-undo
+
+
+Style
+#change cursors on hover
+#change design of cards: front and shape and margin and max card size values
+#add effects depending on card successful or not
+#overall styling
+#popup message: have animated background
+#style footer
+
+
+
