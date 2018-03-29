@@ -123,7 +123,7 @@ $(function () {
             stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>';
             $('#stars').html(stars);
         } else if (attempts >= 24 && attempts < 32) {
-            stars= '<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+            stars = '<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
             $('#stars').html(stars);
         } else if (attempts >= 32) {
             stars = '<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
@@ -153,13 +153,12 @@ $(function () {
 
     }
 
-
     //function for the popup message on winning
     function messageWinning() {
 
         $(`<section class="game-over"><div class="message-box"><h2>Yay! You have found all pairs!</h2><p>Number of attempts: ${attempts}</p><p>Time required: ${showMinutes}:${showSeconds} </p><p>Level: ${stars} </p><p><i class="fas fa-undo"></i></p></div></section>`).insertAfter($('.game'));
 
-        $('.message-box').fadeIn(800);
+        $('.message-box').fadeIn(1000);
 
     }
 
@@ -216,7 +215,7 @@ $(function () {
                 appendSeconds.html(showSeconds);
             }
 
-            if (minutes > 59) {
+            if (minutes > 9) {
                 showMinutes = minutes;
                 appendMinutes.html(showMinutes);
             }

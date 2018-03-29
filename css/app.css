@@ -1,3 +1,17 @@
+/* ...............................
+
+GLOBAL SETTINGS
+.................................*/
+
+/* COLOR PALETTE
+credit to http://colorpalettes.net/color-palette-1298/
+#a6d5e5
+#85c3b4
+#fbed60
+#96bce9
+#ddcfe8
+*/
+
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -5,8 +19,112 @@
     padding: 0;
 }
 
+body,
+html {
+    background: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #555;
+    font-size: 16px;
+    overflow-x: hidden;
+    text-align: center;
+    background: #ffffff;
+}
+
+
+
+h1 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 300%;
+    padding: 20px;
+}
+
+h2 {
+    margin: 5% 0;
+    color: #000000;
+    font-weight: 300;
+}
+
+.fa-star {
+    color: #fbed60;
+}
+
+p {
+    margin: 1%;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.fa-undo {
+    padding: 0 20% 20% 20%;
+}
+
+.message-box .fa-undo {
+    padding: 10%;
+}
+
+.fa-undo:hover {
+    cursor: pointer;
+}
+
+
+
+/* ...............................
+
+GENERAL PAGE LAYOUT
+.................................*/
+
+header::before,
+footer::after {
+    display: block;
+    content: '';
+    width: 100%;
+    background: #fbed60;
+    height: 20px;
+}
+
+header {
+    margin: auto;
+    background: #ffff92;
+    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+
+
+}
+
+
+footer {
+    margin: 20px 0 0 0;
+    background: #f5f5f5;
+}
+
+footer div {
+    font-size: 80%;
+    padding: 10px;
+}
+
+
+
+/* ...............................
+
+SPECIFIC SETTINGS
+.................................*/
+
+.game {
+    max-width: 550px;
+    margin: auto;
+}
+
+
 
 /* STATISTICS */
+
+.stats {
+    margin: 30px 0 10px 0;
+}
 
 ul.stats {
     display: -webkit-box;
@@ -21,7 +139,6 @@ ul.stats {
 
 ul.stats li {
     display: inline-block;
-    border: 1px solid black;
     padding: 5px;
     width: 25%;
 }
@@ -29,17 +146,12 @@ ul.stats li {
 
 /* CARDBOARD */
 
-#memory-game {
-    width: 95%;
-    margin: auto;
-}
-
 /* card with equal height and width on resizing , credit to http://www.mademyday.de/css-height-equals-width-with-pure-css.html/ */
 
 .container {
     display: inline-block;
     width: 23%;
-    margin: 0.5%;
+    margin: 1%;
     position: relative;
     -webkit-perspective: 800px;
     perspective: 800px;
@@ -50,6 +162,8 @@ ul.stats li {
     display: block;
     padding-top: 100%;
 }
+
+
 
 /*card flip effect, credit to https://desandro.github.io/3dtransforms/docs/card-flip.html */
 
@@ -67,6 +181,7 @@ ul.stats li {
     left: 0;
     bottom: 0;
     right: 0;
+
 }
 
 .card figure {
@@ -77,11 +192,20 @@ ul.stats li {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    border-radius: 10px 5px;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.card figure:hover {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
 
 .front {
-    background-color: blue;
+    background-color: #85c3b4;
+
 }
 
 .back {
@@ -100,35 +224,35 @@ ul.stats li {
 /* Card Backgrounds */
 
 [data-card-type="A"] .back {
-    background: #c6c6c6 url('../img/001-watering-can.svg');
+    background: #f5f5f5 url('../img/001-watering-can.svg');
 }
 
 [data-card-type="B"] .back {
-    background: #c6c6c6 url('../img/002-wellington.svg');
+    background: #f5f5f5 url('../img/002-wellington.svg');
 }
 
 [data-card-type="C"] .back {
-    background: #c6c6c6 url('../img/003-rainbow.svg');
+    background: #f5f5f5 url('../img/003-rainbow.svg');
 }
 
 [data-card-type="D"] .back {
-    background: #c6c6c6 url('../img/004-rabbit.svg');
+    background: #f5f5f5 url('../img/004-rabbit.svg');
 }
 
 [data-card-type="E"] .back {
-    background: #c6c6c6 url('../img/005-bee.svg');
+    background: #f5f5f5 url('../img/005-bee.svg');
 }
 
 [data-card-type="F"] .back {
-    background: #c6c6c6 url('../img/006-sun.svg');
+    background: #f5f5f5 url('../img/006-sun.svg');
 }
 
 [data-card-type="G"] .back {
-    background: #c6c6c6 url('../img/007-plant.svg');
+    background: #f5f5f5 url('../img/007-plant.svg');
 }
 
 [data-card-type="H"] .back {
-    background: #c6c6c6 url('../img/008-easter-egg.svg');
+    background: #f5f5f5 url('../img/008-easter-egg.svg');
 }
 
 /* POPUP MESSAGE ON WINNING */
@@ -149,15 +273,22 @@ ul.stats li {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    z-index: 2;
 }
 
 .message-box {
     background: rgb(255, 255, 255);
     width: 70%;
-    height: 50%;
-    text-align: center;
+    max-width: 500px;
+    max-height: 500px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    padding: 5%;
+    border: 5px solid #fbed60;
+    border-radius: 20px;
 }
-
-
-
