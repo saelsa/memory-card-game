@@ -14,6 +14,14 @@ $(function () {
     let cardID = ''; //stores the card ID of solved pairs
 
 
+    let seconds = 00;
+    let tens = 00;
+    let minutes = 00;
+    let appendTens = $("#tens");
+    let appendSeconds = $("#seconds");
+    let appendMinutes = $("#minutes");
+    let Interval;
+
 
     //on page load
     createBoard();
@@ -29,7 +37,7 @@ $(function () {
         //if this is the initial click, start the stopwatch
 
         if (attempts === 0) {
-            stopwatch();
+            startWatch();
         };
 
 
@@ -128,12 +136,13 @@ $(function () {
         }
     };
 
+
     //function for what happens when all pairs are found and the game is over
     function gameOver() {
+        stopWatch();
         messageWinning();
 
     }
-
 
     //function for the popup message on winning
     function messageWinning() {
@@ -161,6 +170,55 @@ $(function () {
 
         return array;
     }
+
+
+    //Stopwatch function, based on https://www.cssscript.com/a-minimal-pure-javascript-stopwatch/
+
+    function stopWatch() {
+        clearInterval(Interval);
+    }
+
+    function startWatch() {
+
+    clearInterval(Interval);
+    Interval = setInterval(startTimer, 10);
+
+    function startTimer() {
+        tens++;
+
+        if (tens < 9) {
+            appendTens.html("0" + tens);
+        }
+
+        if (tens > 9) {
+            appendTens.html(tens);
+
+        }
+
+        if (tens > 99) {
+            seconds++;
+            appendSeconds.html("0" + seconds);
+            tens = 0;
+            appendTens.html("0" + 0);
+        }
+
+        if (seconds > 9) {
+            appendSeconds.html(seconds);
+        }
+
+        if (seconds > 59) {
+            minutes++;
+            appendMinutes.html("0" + minutes);
+            seconds = 0;
+            appendSeconds.html("0" + 0);
+        }
+
+    }
+
+
+    }
+
+
 
 
 });
