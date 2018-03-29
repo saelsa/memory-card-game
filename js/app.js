@@ -9,6 +9,7 @@ $(function () {
 
     //
     let attempts = 0; //counts how many attempts a player has made
+    let stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'; //stores the stars to display
     let clickCount = 0; //counts if this is the first click in an attempt
     let pairs = 0; //counts how many pairs have already been discovered
     let cardID = ''; //stores the card ID of solved pairs
@@ -119,11 +120,14 @@ $(function () {
         $('#attempts').html(attempts);
 
         if (attempts > 16 && attempts < 24) {
-            $('#stars').html('<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>');
+            stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>';
+            $('#stars').html(stars);
         } else if (attempts >= 24 && attempts < 32) {
-            $('#stars').html('<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>');
+            stars= '<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+            $('#stars').html(stars);
         } else if (attempts >= 32) {
-            $('#stars').html('<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>');
+            stars = '<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+            $('#stars').html(stars);
         } else {
             return;
         };
@@ -141,9 +145,6 @@ $(function () {
     };
 
 
-    $('h1').click(function () {
-        gameOver();
-    })
 
     //function for what happens when all pairs are found and the game is over
     function gameOver() {
@@ -156,7 +157,7 @@ $(function () {
     //function for the popup message on winning
     function messageWinning() {
 
-        $(`<section class="game-over"><div class="message-box"><h2>Yay! You have found all pairs!</h2><p>Number of attempts: ${attempts}</p><p>Time required: ${showMinutes}:${showSeconds} </p><p>Level: stars</p><i class="fas fa-undo"></i></div></section>`).insertAfter($('.game'));
+        $(`<section class="game-over"><div class="message-box"><h2>Yay! You have found all pairs!</h2><p>Number of attempts: ${attempts}</p><p>Time required: ${showMinutes}:${showSeconds} </p><p>Level: ${stars} </p><p><i class="fas fa-undo"></i></p></div></section>`).insertAfter($('.game'));
 
         $('.message-box').fadeIn(800);
 
