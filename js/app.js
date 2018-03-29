@@ -33,6 +33,12 @@ $(function () {
 
 
     //EVENT TRIGGERS
+    //when clicking the undo icon reload the page
+    $(document).on('click', '.fa-undo', function () {
+        location.reload();
+    });
+
+
     $('.card').click(function (event) {
 
         //if this is the initial click, start the stopwatch
@@ -75,7 +81,7 @@ $(function () {
 
                 pairs++;
 
-                if(pairs===8) {
+                if (pairs === 8) {
                     gameOver();
                 }
             };
@@ -97,9 +103,6 @@ $(function () {
     });
 
 
-    $('.fa-undo').click(function () {
-        location.reload();
-    });
 
 
     //FUNCTIONS
@@ -138,7 +141,9 @@ $(function () {
     };
 
 
-
+    $('h1').click(function () {
+        gameOver();
+    })
 
     //function for what happens when all pairs are found and the game is over
     function gameOver() {
@@ -151,7 +156,7 @@ $(function () {
     //function for the popup message on winning
     function messageWinning() {
 
-        $(`<section class="game-over"><div class="message-box"><h2>Yay! You have found all pairs!</h2><p>Number of attempts: ${attempts}</p><p>Time required: ${showMinutes}:${showSeconds} </p><p>Level: stars</p><p><i class="fas fa-undo"></i></p></div></section>`).insertAfter($('.game'));
+        $(`<section class="game-over"><div class="message-box"><h2>Yay! You have found all pairs!</h2><p>Number of attempts: ${attempts}</p><p>Time required: ${showMinutes}:${showSeconds} </p><p>Level: stars</p><i class="fas fa-undo"></i></div></section>`).insertAfter($('.game'));
 
         $('.message-box').fadeIn(800);
 
@@ -183,44 +188,42 @@ $(function () {
 
     function startWatch() {
 
-    clearInterval(Interval);
-    Interval = setInterval(startTimer, 10);
+        clearInterval(Interval);
+        Interval = setInterval(startTimer, 10);
 
-    function startTimer() {
-        tens++;
+        function startTimer() {
+            tens++;
 
-        if (tens > 99) {
-            seconds++;
-            showSeconds = "0" + seconds;
-            appendSeconds.html(showSeconds);
-            tens = 0;
+            if (tens > 99) {
+                seconds++;
+                showSeconds = "0" + seconds;
+                appendSeconds.html(showSeconds);
+                tens = 0;
+            }
+
+            if (seconds > 9) {
+                showSeconds = seconds;
+                appendSeconds.html(showSeconds);
+            }
+
+            if (seconds > 59) {
+                minutes++;
+                showMinutes = "0" + minutes;
+                appendMinutes.html(showMinutes);
+                seconds = 0;
+                showSeconds = "0" + 0;
+                appendSeconds.html(showSeconds);
+            }
+
+            if (minutes > 59) {
+                showMinutes = minutes;
+                appendMinutes.html(showMinutes);
+            }
+
         }
 
-        if (seconds > 9) {
-            showSeconds = seconds;
-            appendSeconds.html(showSeconds);
-        }
-
-        if (seconds > 59) {
-            minutes++;
-            showMinutes = "0" + minutes;
-            appendMinutes.html(showMinutes);
-            seconds = 0;
-            showSeconds = "0" + 0;
-            appendSeconds.html(showSeconds);
-        }
-
-        if (minutes > 59) {
-            showMinutes = minutes;
-            appendMinutes.html(showMinutes);
-        }
 
     }
-
-
-    }
-
-
 
 
 });
