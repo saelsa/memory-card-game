@@ -80,6 +80,8 @@ $(function () {
 
                 $("[data-card-type=" + comparisonArray[0] + "]").removeClass('flipped').addClass('solved');
 
+                $("[data-card-type=" + comparisonArray[0] + "]").parent().addClass('animated pulse');
+
                 pairs++;
 
                 if (pairs === 8) {
@@ -145,12 +147,13 @@ $(function () {
     };
 
 
-
     //function for what happens when all pairs are found and the game is over
     function gameOver() {
         stopWatch();
-        messageWinning();
 
+        $('.container').addClass('animated infinite rotateIn');
+
+        messageWinning();
     }
 
     //function for the popup message on winning
