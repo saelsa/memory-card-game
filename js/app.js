@@ -17,9 +17,10 @@ $(function () {
     let seconds = 00;
     let tens = 00;
     let minutes = 00;
-    let appendTens = $("#tens");
     let appendSeconds = $("#seconds");
     let appendMinutes = $("#minutes");
+    let showSeconds = "00";
+    let showMinutes = "00";
     let Interval;
 
 
@@ -137,6 +138,8 @@ $(function () {
     };
 
 
+
+
     //function for what happens when all pairs are found and the game is over
     function gameOver() {
         stopWatch();
@@ -144,11 +147,11 @@ $(function () {
 
     }
 
+
     //function for the popup message on winning
     function messageWinning() {
 
-
-        $(`<section class="game-over"><div class="message-box"><h2>Yay! You have found all pairs!</h2><p>Number of attempts: ${attempts}</p><p>Time required: 00:00 </p><p>Level: stars</p><p><i class="fas fa-undo"></i></p></div></section>`).insertAfter($('.game'));
+        $(`<section class="game-over"><div class="message-box"><h2>Yay! You have found all pairs!</h2><p>Number of attempts: ${attempts}</p><p>Time required: ${showMinutes}:${showSeconds} </p><p>Level: stars</p><p><i class="fas fa-undo"></i></p></div></section>`).insertAfter($('.game'));
 
         $('.message-box').fadeIn(800);
 
@@ -186,31 +189,30 @@ $(function () {
     function startTimer() {
         tens++;
 
-        if (tens < 9) {
-            appendTens.html("0" + tens);
-        }
-
-        if (tens > 9) {
-            appendTens.html(tens);
-
-        }
-
         if (tens > 99) {
             seconds++;
-            appendSeconds.html("0" + seconds);
+            showSeconds = "0" + seconds;
+            appendSeconds.html(showSeconds);
             tens = 0;
-            appendTens.html("0" + 0);
         }
 
         if (seconds > 9) {
-            appendSeconds.html(seconds);
+            showSeconds = seconds;
+            appendSeconds.html(showSeconds);
         }
 
         if (seconds > 59) {
             minutes++;
-            appendMinutes.html("0" + minutes);
+            showMinutes = "0" + minutes;
+            appendMinutes.html(showMinutes);
             seconds = 0;
-            appendSeconds.html("0" + 0);
+            showSeconds = "0" + 0;
+            appendSeconds.html(showSeconds);
+        }
+
+        if (minutes > 59) {
+            showMinutes = minutes;
+            appendMinutes.html(showMinutes);
         }
 
     }
