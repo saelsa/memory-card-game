@@ -2,15 +2,10 @@ ToDo
 
 Features
 
-
 Improve
 #separate event on card click from all the stuff that will happen, put into function
 
-
-
 Style
-#add effects depending on card successful or not
-#popup message: have animated background
 #style footer
 
 
